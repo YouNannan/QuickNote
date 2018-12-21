@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/question_item_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="6dp"
+    android:paddingBottom="4dp"
+    android:orientation="horizontal">
+
+
+    <EditText
+        android:id="@+id/question_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="3dp"
+        android:layout_marginBottom="6dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:layout_weight="9"
+        android:gravity="center_vertical|left"
+        android:background="@drawable/green_corner_rectangle"
+        android:inputType="textMultiLine"
+        android:text="问："
+        android:textSize="15sp"/>
+    <Button
+        android:id="@+id/delete_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="12sp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:text="删除" />
+
+</LinearLayout>

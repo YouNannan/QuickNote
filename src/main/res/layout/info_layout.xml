@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 属性01 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left"
+            android:text="开始时间" />
+
+        <Button
+            android:id="@+id/date01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="日期选择" />
+        <Button
+            android:id="@+id/time01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="时间选择" />
+        <Button
+            android:id="@+id/clear01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="清除" />
+    </LinearLayout>
+
+    <!-- 属性02 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left"
+            android:text="结束时间：" />
+
+        <Button
+            android:id="@+id/date02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="日期选择" />
+        <Button
+            android:id="@+id/time02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="时间选择" />
+        <Button
+            android:id="@+id/now02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前" />
+    </LinearLayout>
+
+    <!-- 属性03 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:gravity="center_vertical|left"
+            android:text="地点：" />
+
+        <EditText
+            android:id="@+id/editText03"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="输入地点"
+            android:textSize="14sp"
+            android:gravity="center_vertical|left"
+            android:inputType="textMultiLine"
+            android:maxLines="10"/>
+    </LinearLayout>
+
+    <!-- 属性04 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left"
+            android:text="对象类型：" />
+
+        <Spinner
+            android:id="@+id/spinner04"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:entries="@array/spinner04_data"/>
+    </LinearLayout>
+
+
+    <!-- 属性05 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left"
+            android:text="次数：" />
+
+        <EditText
+            android:id="@+id/editText05"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:maxLength="4"
+            android:gravity="center_vertical|left"
+            android:inputType="number"
+            android:text="1" />
+    </LinearLayout>
+
+
+    <!-- 属性06 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left"
+            android:text="姓名：" />
+
+        <EditText
+            android:id="@+id/editText06"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:hint="输入姓名"
+            android:maxLength="30"
+            android:gravity="center_vertical|left"
+            android:inputType="textPersonName"/>
+    </LinearLayout>
+
+
+    <!-- 属性07 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left"
+            android:singleLine="true"
+            android:text="居民身份证：" />
+
+        <EditText
+            android:id="@+id/editText07"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:hint="输入身份证号"
+            android:textSize="14sp"
+            android:inputType="numberSigned"
+            android:digits="0123456789 X"
+            android:maxLength="18"
+            android:gravity="center_vertical|left"/>
+    </LinearLayout>
+
+
+    <!-- 属性08 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left"
+            android:text="性别：" />
+        <TextView
+            android:id="@+id/text08"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left"
+            android:text="男" />
+        <Switch
+            android:id="@+id/switch08"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"/>
+    </LinearLayout>
+
+
+    <!-- 属性09 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left"
+            android:text="出生年月：" />
+
+        <Button
+            android:id="@+id/date09"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null" />
+
+    </LinearLayout>
+
+
+    <!-- 属性10 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left"
+            android:text="年龄：" />
+
+        <EditText
+            android:id="@+id/editText10"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:maxLength="2"
+            android:gravity="center_vertical|left"
+            android:inputType="number"
+            android:text="0" />
+    </LinearLayout>
+
+    <!-- 属性11 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left"
+            android:text="人大代表：" />
+
+        <TextView
+            android:id="@+id/text11"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left"
+            android:text="否" />
+        <Switch
+            android:id="@+id/switch11"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"/>
+    </LinearLayout>
+
+    <!-- 属性12 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:gravity="center_vertical|left"
+            android:text="现居住地：" />
+
+        <EditText
+            android:id="@+id/editText12"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="输入地址"
+            android:textSize="14sp"
+            android:gravity="center_vertical|left"
+            android:inputType="textMultiLine"
+            android:maxLines="10"/>
+    </LinearLayout>
+
+    <!-- 属性13 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:gravity="center_vertical|left"
+            android:text="户籍住址：" />
+
+        <EditText
+            android:id="@+id/editText13"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="输入地址"
+            android:textSize="14sp"
+            android:gravity="center_vertical|left"
+            android:inputType="textMultiLine"
+            android:maxLines="10"/>
+    </LinearLayout>
+
+    <!-- 属性14 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left"
+            android:text="联系电话：" />
+
+        <EditText
+            android:id="@+id/editText14"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:maxLength="17"
+            android:hint="输入电话号码"
+            android:textSize="14sp"
+            android:gravity="center_vertical|left"
+            android:inputType="number"/>
+    </LinearLayout>
+
+    <include layout="@layout/none_bottom_layout" />
+</LinearLayout>

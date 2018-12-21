@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop = "4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/template_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingRight="20dp"/>
+
+        <EditText
+            android:id="@+id/template_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="3dp"
+            android:paddingBottom="6dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:hint="请输入模板名称"
+            android:textSize="14sp"
+            android:gravity="center_vertical|left"
+            android:background="#eeeeee"
+            android:singleLine="true"/>
+    </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="4dp">
+        <Switch
+            android:id="@+id/qa_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
+            android:id="@+id/qa_switch_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/qa_switch"
+            android:text = "问"/>
+
+        <Button
+            android:id="@+id/save_template"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/qa_switch_text"
+            android:background="@drawable/btn_common"
+            android:text="保存"/>
+        <Button
+            android:id="@+id/import_system_template"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/save_template"
+            android:background="@drawable/btn_common"
+            android:text="导入系统模板"/>
+        <Button
+            android:id="@+id/delete_template"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@drawable/btn_common"
+            android:text="删除"/>
+    </android.support.constraint.ConstraintLayout>
+
+
+    <EditText
+        android:id="@+id/template_sentences"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop = "10dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="6dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:layout_weight="1"
+        android:hint="请在此输入模板，每一句问答以回车符为分隔"
+        android:background="#dddddd"
+        android:textSize="14sp"
+        android:gravity="center_vertical|left"
+        android:inputType="textMultiLine"/>
+
+    <include layout="@layout/none_bottom_layout" />
+</LinearLayout>

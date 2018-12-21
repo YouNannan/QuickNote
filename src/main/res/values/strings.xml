@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">快速笔录</string>
+    <string name="title_info">信息</string>
+    <string name="title_qa">问答</string>
+    <string name="title_print">打印</string>
+    <string name="title_template">模板</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_content">发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n
+    发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n
+    发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n
+    发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n
+    发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n发表讲话\n郑重的讲话\n\n</string>
+    <string name="title_activity_home">快速笔录</string>
+
+    <string name="print_method">方法1：生成打印文件后，手机连接无线或蓝牙便携打印机直接打印\n方法2：生成打印文件后，发送到邮箱用电脑打印</string>
+</resources>

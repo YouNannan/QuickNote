@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/container"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".HomeActivity">
+
+<FrameLayout
+    android:id="@+id/frame_info_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@id/navigation"
+    android:background="@android:color/white">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical"
+        android:fadingEdge="vertical">
+        <include layout="@layout/info_layout" />
+    </ScrollView>
+</FrameLayout>
+
+<FrameLayout
+    android:id="@+id/frame_qa_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@id/navigation"
+    android:background="@android:color/white">
+    <include layout="@layout/qa_layout" />
+</FrameLayout>
+
+<FrameLayout
+    android:id="@+id/frame_print_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@id/navigation"
+    android:background="@android:color/white">
+    <include layout="@layout/print_layout" />
+</FrameLayout>
+
+<FrameLayout
+    android:id="@+id/frame_template_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@id/navigation"
+    android:background="@android:color/white">
+    <include layout="@layout/template_layout" />
+</FrameLayout>
+
+<android.support.design.widget.BottomNavigationView
+    android:id="@+id/navigation"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/windowBackground"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:windowSoftInputMode="adjustResize"
+    app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+    app:menu="@menu/navigation" />
+
+</android.support.constraint.ConstraintLayout>
