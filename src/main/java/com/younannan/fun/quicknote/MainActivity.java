@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        PermisionUtils.verifyAllPermissions(MainActivity.this);
 
         dataCenter = new DataCenter(getFilesDir().getAbsolutePath());
         recordList = (ListView) findViewById(R.id.record_list);
@@ -51,9 +52,6 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermisionUtils.verifyCallPermissions(MainActivity.this);
-                PermisionUtils.verifyStoragePermissions(MainActivity.this);
-                PermisionUtils.verifyInternetPermissions(MainActivity.this);
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
             }

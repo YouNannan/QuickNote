@@ -69,7 +69,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-    private static final String pdfFileName = "myPdf.pdf";
+    private static final String pdfFileName = "QuickNote.pdf";
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -615,8 +615,12 @@ public class HomeActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     String dirPath = Environment.getExternalStorageDirectory().getPath();
-                    //DataCenter.MailDataSaver.createFile(dirPath + "/mailfrom");//这个代码记得注释掉
-                    startActivity(getPdfFileIntent(dirPath + "/" + pdfFileName));
+                    try {
+                        startActivity(getPdfFileIntent(dirPath + "/" + pdfFileName));
+                    } catch(Exception e){
+                        Toast.makeText(HomeActivity.this, "没有找到默认的pdf阅读软件，请使用文件管理器到内存卡根目录中查找名为“"
+                                + pdfFileName + "”的文件，手动打开之。", Toast.LENGTH_LONG).show();
+                    }
                 }
             });
 
@@ -698,8 +702,7 @@ public class HomeActivity extends AppCompatActivity {
         private Intent getPdfFileIntent(String Path)
         {
             File file = new File(Path);
-            Intent intent = new Intent("android.intent.action.VIEW");
-            intent.addCategory("android.intent.category.DEFAULT");
+            Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             Uri uri = Uri.fromFile(file);
             intent.setDataAndType(uri, "application/pdf");
