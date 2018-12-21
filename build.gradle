@@ -4,10 +4,10 @@ android {
     signingConfigs {
 
         Myconfig {
-            keyAlias 'key0'
-            keyPassword 'yuchen9'
-            storeFile file('D:/work/我的/apk签名文件/key')
-            storePassword 'yuchen'
+            keyAlias ''
+            keyPassword ''
+            storeFile file('')
+            storePassword ''
         }
     }
     compileSdkVersion 28
