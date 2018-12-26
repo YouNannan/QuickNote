@@ -28,8 +28,15 @@
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:windowSoftInputMode="adjustPan" />
-
-
+　　　　<provider
+        android:name="android.support.v4.content.FileProvider"
+        android:authorities="com.younannan.fun.quicknote"
+        android:exported="false"
+        android:grantUriPermissions="true">
+　　　　　　<meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+　　　　</provider>
     </application>
 
 </manifest>
