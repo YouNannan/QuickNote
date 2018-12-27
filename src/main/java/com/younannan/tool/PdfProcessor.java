@@ -28,65 +28,7 @@ import java.util.ArrayList;
 public class PdfProcessor {
 
     private static final String SPECAL_CHAR_TTF_PATH = "com/itextpdf/text/pdf/fonts/cmaps/seguisym.ttf";
-/*
-    public static void test(String dest){
-        PdfProcessor pdfProcessor = null;
-        try {
-            pdfProcessor = new PdfProcessor(dest);
-            ArrayList<String> qaList = new ArrayList<String>();
-            qaList.add("问：我们是贵阳市公安局公交分局民警，根据《中华人民共和国刑事诉讼法》第一百一十八之规定，现依法对你进行讯问，你是否有犯罪\r\n" +
-                    "行为？并如实陈述有罪的情节或者作无罪的辩解，听清楚了吗？");
-            qaList.add("答：我听清楚了。");
-            qaList.add("问：你的姓名、别名、曾用名、性别、出生年月日、户籍所在地、现\r\n" +
-                    "住地、籍贯、出生地、民族、职业、文化程度、身份证号码？");
-            qaList.add("答：这部分内容是讯问笔录记录的重点。根据讯问次数的不同，记录内容也有所不同。第一次讯问时，要在第一部分依项讯问和记录清楚犯罪嫌疑人的基本情况，包括姓名、曾用名、化名、年龄或出生年月日、民族、籍贯、文化程度、现住址、工作单位、职务与职业、家庭情况、社会经历、是否受过刑事处罚或行政处分等情况。要与原案件材料认真核对，严防错拘错捕。另外，还要问清记明犯罪嫌疑人是否知道为什么被拘留或被逮捕。\r\n" +
-                    "除第一次讯问外，以后的系列讯问可不再问基本情况。可直接进行第二部分讯问内容。\r\n" +
-                    "第二部分，要问清记明讯问的全部过程，记录人首先要记清讯问人的提问，根据提问的中心问题，全面准确地记载犯罪嫌疑人关于犯罪事实的供辩。"
-                    + "这一部分内容要根据讯问的原过程准确清楚地证明犯罪的时间、地点、动机、目的、手段、起因、后果、证据、涉及到的人和事等，"
-                    + "尤其是其中能说明案件性质的关键情节、有关的证据、有明显矛盾的地方等重要情况，要注意准确清楚地记录下来。如果犯罪嫌疑人进行无罪辩解，"
-                    + "要注意记清其陈述的理由和依据。此外，犯罪嫌疑人的认罪态度如何，也要准确地记录下来。");
-            qaList.add("问：现向你宣读《犯罪嫌疑人诉讼权利义务告知书》和《法律援助权\r\n" +
-                    "利义务告知书》，并交给你，你是否收到，是否有阅读能力？  ");
-            qaList.add("答：《中华人民共和国刑事诉讼法》第116条 [1]  规定，讯问犯罪嫌疑人必须由人民检察院或者公安机关的侦查人员负责进行。"
-                    + "讯问时，侦查人员不得少于二人。犯罪嫌疑人被送交看守所羁押以后，侦查人员对其进行讯问，应当在看守所内进行。\r\n" +
-                    "讯问笔录的书写应当用钢笔、毛笔或其他能长期保持字迹的书写工具。\r\n" +
-                    "讯问笔录首部内容的填写要内容齐全，不得漏填。\r\n" +
-                    "笔录记录内容要清楚、全面、准确。对犯罪嫌疑人的供述，不仅要记“七何”要素，还应该尽可能完整地再现原始犯罪过程；"
-                    + "对犯罪嫌疑人供述认罪的情况要记，翻供辩解的也要记；态度老实的要记，态度顽固等不老实的也要记；"
-                    + "有回答的要记，拒绝回答、沉默的场面也要记；纪录要如实反映犯罪嫌疑人供述的原意，不能随意夸大、缩小或改变原意。"
-                    + "特别是对于涉及定罪定性的重要情节、重要供词，应尽可能地记录原话。对于涉及黑话、方言、特殊内容的词语也要用括号作说明解释；"
-                    + "对于讯问过程中犯罪嫌疑人的表情、语气、体态语等也要用括号作准确适当的描写。\r\n" +
-                    "讯问笔录结尾核对手续一定要认真履行，以保证笔录的法律有效性。\r\n" +
-                    "讯问笔录在整个刑事诉讼中占有重要地位，侦查结束时，讯问笔录存入侦查案卷(主卷)。");
-            qaList.add("问：还有什么要交代的？");
-            qaList.add("没有了");
-            qaList.add("");
-            qaList.add("真的没有了，没有了啊，确实没有了。真的没有了，没有了啊，确实没有了。真的没有了，没有了啊，确实没有了。真的没有了，没有了啊，确实没有了。真的没有了，没有了啊，确实没有了。");
-            pdfProcessor.fillInfo("1", "2018", "12", "13", "02", "31",
-                    "2018", "12", "14", "12", "05",
-                    "湖北省武汉市东湖高新技术开发区紫菘街道",//紫菘小区123号23栋16层1603室",
-                    "张三", "李四", "武汉市气象局",
-                    "王五", "湖北省地震局",
-                    "赵二", "男", "37", "1981", "03", "17", "420106198103172695",
-                    true,
-                    true,
-                    true,
-                    "湖北省武汉市东湖高新技术开发区",//紫菘街道紫菘",//小区123号23栋16层1604室",
-                    "13971987654",
-                    "湖北省武汉市东湖高新技术开发区紫菘街道紫菘",//小区123号23栋16层1604室",
-                    qaList);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        } finally {
-            if (pdfProcessor != null) {
-                pdfProcessor.close();
-            }
-        }
-    }
-*/
 
     //将诸多信息塞到pdf里
     public void fillInfo(String times,
@@ -126,7 +68,8 @@ public class PdfProcessor {
             stringXun = "讯";
         }
         addHeader(times);
-        addTitle(stringXun + " 问 笔 录");
+        //addTitle(stringXun + " 问 笔 录");
+        addTitle("调 查 评 估 笔 录");
         add("时间 ").add(beginYear, true).add("年")
                 .add(beginMonth, true).add("月")
                 .add(beginDay, true).add("日")
@@ -151,7 +94,7 @@ public class PdfProcessor {
                 .add(birthMonth, true).add("月").add(birthDay, true).add("日")
                 .endParagraph();
         add("身份证种类及号码 ").add("居民身份证 " + idNum, true, 84)
-                .addSpaces(10, false).add("人大代表 ").addSpecialChar(isRendadaibiao?"☑":"□")
+                .addSpaces(10, false)//.add("人大代表 ").addSpecialChar(isRendadaibiao?"☑":"□")
                 .endParagraph();
         add("现居地址 ").add(nowAddress, true, 89)
                 .addSpaces(6, false).add("联系方式 ").add(phoneNum, true, 30)

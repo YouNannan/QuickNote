@@ -74,11 +74,13 @@ public class DataCenter {
 		try{
 			ArrayList<TemplateData> list = (ArrayList<TemplateData>)loadObject(saveDir + "/" + TEMPLATE_FILENAME);
 			if(list == null){
-				return new ArrayList<TemplateData>();
+				return TemplateData.getPreTemplateInstance();
+				//return new ArrayList<TemplateData>();
 			}
 			return list;
 		} catch (ClassCastException e){
-			return new ArrayList<TemplateData>();
+			return TemplateData.getPreTemplateInstance();
+			//return new ArrayList<TemplateData>();
 		}
     }
     

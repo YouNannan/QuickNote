@@ -18,9 +18,11 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.ViewParent;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -41,6 +43,7 @@ import com.younannan.data.DataCenter;
 import com.younannan.data.InfoData;
 import com.younannan.data.TemplateData;
 import com.younannan.tool.EmailProcessor;
+import com.younannan.tool.IdNumberVerifier;
 import com.younannan.tool.MyDateTimeUtil;
 import com.younannan.tool.PdfProcessor;
 import com.younannan.tool.PermisionUtils;
@@ -255,6 +258,8 @@ public class HomeActivity extends AppCompatActivity {
         public EditText nowAddress;
         public EditText residenceAddress;
         public EditText phoneNumber;
+        public EditText authorizeDept;//委托单位
+        public EditText litigant;//当事人
 
 
         public void prepareInfoPage(){
@@ -266,12 +271,31 @@ public class HomeActivity extends AppCompatActivity {
             times = (EditText) findViewById(R.id.editText05);
             name = (EditText) findViewById(R.id.editText06);
             idNumber = (EditText) findViewById(R.id.editText07);
+            idNumber.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if(!hasFocus){
+                        IdNumberVerifier verifier = new IdNumberVerifier(idNumber.getText().toString());
+                        if(verifier.isValid()){
+                            sex.setText(verifier.isMale()?"男":"女");
+                            sexSwitch.setChecked(!verifier.isMale());
+                            Button birthDateButton = (Button) findViewById(R.id.date09);
+                            birthDateButton.setText(verifier.getBirthDate());
+                            age.setText(verifier.getAge());
+                        } else {
+                            Toast.makeText(HomeActivity.this, "身份证号码非法！", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+            });
             setSexSwitch();
             setBirthDateButton();
             setRendadaibiaoSwitch();
             nowAddress = (EditText) findViewById(R.id.editText12);
             residenceAddress = (EditText) findViewById(R.id.editText13);
             phoneNumber = (EditText) findViewById(R.id.editText14);
+            authorizeDept = (EditText) findViewById(R.id.editText15);
+            litigant = (EditText) findViewById(R.id.editText16);
         }
 
         public void setPageFromData(InfoData infoData){
@@ -291,6 +315,8 @@ public class HomeActivity extends AppCompatActivity {
             nowAddress.setText(infoData.nowAddress);
             residenceAddress.setText(infoData.residenceAddress);
             phoneNumber.setText(infoData.phoneNumber);
+            authorizeDept.setText(infoData.authorizeDept);
+            litigant.setText(infoData.litigant);
         }
         public void setDataFromPage(InfoData infoData){
             infoData.beginTime = beginTime.getDateTime();
@@ -307,6 +333,8 @@ public class HomeActivity extends AppCompatActivity {
             infoData.nowAddress = nowAddress.getText().toString();
             infoData.residenceAddress = residenceAddress.getText().toString();
             infoData.phoneNumber = phoneNumber.getText().toString();
+            infoData.authorizeDept = authorizeDept.getText().toString();
+            infoData.litigant = litigant.getText().toString();
         }
 
 
@@ -357,6 +385,8 @@ public class HomeActivity extends AppCompatActivity {
 
         //设置"人大代表"开关的点击事件
         private void setRendadaibiaoSwitch(){
+            LinearLayout rendadaibiaoLayout = (LinearLayout) findViewById(R.id.linearlayout_rendadaibiao_11);
+            rendadaibiaoLayout.setVisibility(View.GONE);
             rendadaibiaoSwitch = (Switch) findViewById(R.id.switch11);
             rendadaibiao = (TextView) findViewById(R.id.text11);
             rendadaibiaoSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -544,6 +574,14 @@ public class HomeActivity extends AppCompatActivity {
             String departmentName = printPage.department.getText().toString();
             if(!departmentName.isEmpty()){
                 result =  result.replaceAll("\\{工作单位\\}", departmentName);
+            }
+            String authorizeDeptName = infoPage.authorizeDept.getText().toString();
+            if(!authorizeDeptName.isEmpty()){
+                result =  result.replaceAll("\\{委托单位\\}", authorizeDeptName);
+            }
+            String litigantName = infoPage.litigant.getText().toString();
+            if(!litigantName.isEmpty()){
+                result =  result.replaceAll("\\{当事人\\}", litigantName);
             }
             return result;
         }

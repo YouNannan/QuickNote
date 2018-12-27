@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="spinner04_data">
-        <item>行政-证人</item>
-        <item>行政-受害人</item>
-        <item>刑事-证人</item>
-        <item>刑事-受害人</item>
-        <item>违法-嫌疑人</item>
-        <item>刑事-嫌疑人</item>
+        <item>被告人</item>
+        <item>监护人</item>
+        <item>村/社区干部</item>
+        <item>被害人</item>
+        <item>其他</item>
     </string-array>
     <string-array name="template_selector_data">
         <item>系统模板</item>

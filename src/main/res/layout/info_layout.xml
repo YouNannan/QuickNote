@@ -266,6 +266,7 @@
 
     <!-- 属性11 -->
     <LinearLayout
+        android:id="@+id/linearlayout_rendadaibiao_11"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
@@ -364,5 +365,52 @@
             android:inputType="number"/>
     </LinearLayout>
 
+    <!-- 属性15 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left"
+            android:text="委托单位：" />
+
+        <EditText
+            android:id="@+id/editText15"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:hint="输入委托单位名称"
+            android:gravity="center_vertical|left"
+            android:inputType="textPersonName"/>
+    </LinearLayout>
+
+    <!-- 属性16 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left"
+            android:text="当事人：" />
+
+        <EditText
+            android:id="@+id/editText16"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:hint="输入当事人名字"
+            android:gravity="center_vertical|left"
+            android:inputType="textPersonName"/>
+    </LinearLayout>
     <include layout="@layout/none_bottom_layout" />
 </LinearLayout>

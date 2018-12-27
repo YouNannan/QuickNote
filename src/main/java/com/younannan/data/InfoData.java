@@ -22,6 +22,8 @@ public class InfoData implements Serializable, Comparable<InfoData>{
     public String nowAddress;
     public String residenceAddress;
     public String phoneNumber;
+    public String authorizeDept;
+    public String litigant;
 
     public ArrayList<String> qaList;
 
@@ -45,6 +47,8 @@ public class InfoData implements Serializable, Comparable<InfoData>{
         nowAddress = "";
         residenceAddress = "";
         phoneNumber = "";
+        authorizeDept = "";
+        litigant = "";
         qaList = new ArrayList<String>();
         department = "";
         departmentEmail = "";
