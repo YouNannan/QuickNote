@@ -27,8 +27,6 @@ public class InfoData implements Serializable, Comparable<InfoData>{
 
     public ArrayList<String> qaList;
 
-    public String department;
-    public String departmentEmail;
 
     public long createTimeStamp;//创建时间
     public InfoData() {
@@ -50,8 +48,6 @@ public class InfoData implements Serializable, Comparable<InfoData>{
         authorizeDept = "";
         litigant = "";
         qaList = new ArrayList<String>();
-        department = "";
-        departmentEmail = "";
 
         createTimeStamp = new Date().getTime();
     }

@@ -123,6 +123,18 @@ public class PdfProcessor {
                 add(content, true, 168).endParagraph();
             }
         }
+
+        add("被调查人核对意见：").addSpaces(122, true)
+                .endParagraph();
+        add("被调查人：").addSpaces(58, true)
+                .add("时间：")
+                .addSpaces(20, true).add("年")
+                .addSpaces(14, true).add("月")
+                .addSpaces(14, true).add("日")
+                .endParagraph();
+        add("调查人：").addSpaces(62, true)
+                .add("记录人：").addSpaces(62, true)
+                .endParagraph();
     }
 
 
@@ -233,7 +245,7 @@ public class PdfProcessor {
         phrase.add(chunk);
         phrase.add(new Chunk("次", getChineseFont(10)));
         PdfContentByte pcb = writer.getDirectContentUnder();
-        ColumnText.showTextAligned(pcb, Element.ALIGN_RIGHT, phrase, 505, 795, 0);
+        ColumnText.showTextAligned(pcb, Element.ALIGN_RIGHT, phrase, 505,795, 0);
         return this;
     }
 
@@ -261,6 +273,12 @@ public class PdfProcessor {
     }
     private static Font getChineseFont(int size) {
         return getChineseFont(size, false, false);
+    }
+
+    private static Font getLightFont(int size){
+        Font font = getChineseFont(size);
+        font.setColor(170,170,170);
+        return font;
     }
     private static Font getChineseFont(int size, boolean withUnderline, boolean isBold) {
         BaseFont bf;
@@ -302,8 +320,8 @@ public class PdfProcessor {
             // add page numbers
             ColumnText.showTextAligned(
                     stamp.getUnderContent(), Element.ALIGN_CENTER,
-                    new Phrase(String.format("第 %d 页  /  共 %d 页", i, n), getChineseFont(12)),
-                    486f, 38f, 0);
+                    new Phrase(String.format("被调查人：_______________    日期：_________年______月______日    第 %d 页  /  共 %d 页", i, n), getLightFont(12)),
+                    300, 38f, 0);
             stamp.alterContents();
             copy.addPage(page);
         }

@@ -140,6 +140,7 @@ public class HomeActivity extends AppCompatActivity {
             ArrayList<TemplateData> templateData = dataCenter.loadTemplateList();
             setPageFromData(infoData, templateData);
         }
+        printPage.setPageFromData();
     }
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -225,7 +226,6 @@ public class HomeActivity extends AppCompatActivity {
         if(infoData != null){
             infoPage.setPageFromData(infoData);
             qaPage.setPageFromData(infoData);
-            printPage.setPageFromData(infoData);
         }
         if(templateList != null){
             templatePage.setPageFromData(templateList);
@@ -235,7 +235,7 @@ public class HomeActivity extends AppCompatActivity {
     public void setDataFromPage(InfoData infoData){
         infoPage.setDataFromPage(infoData);
         qaPage.setDataFromPage(infoData);
-        printPage.setDataFromPage(infoData);
+        printPage.setDataFromPage();
         //templatePage.setDataFromPage(templateList);
 
     }
@@ -728,14 +728,14 @@ public class HomeActivity extends AppCompatActivity {
 
         }
 
-        public void setPageFromData(InfoData infoData){
-            department.setText(infoData.department);
-            departmentEmail.setText(infoData.departmentEmail);
+        public void setPageFromData(){
+            String[] dept = dataCenter.getDepartment().split("/");
+            department.setText(dept[0].substring(1));
+            departmentEmail.setText(dept[1].substring(1));
         }
 
-        public void setDataFromPage(InfoData infoData){
-            infoData.department = department.getText().toString();
-            infoData.departmentEmail = departmentEmail.getText().toString();
+        public void setDataFromPage(){
+            dataCenter.setDepartment(department.getText().toString(), departmentEmail.getText().toString());
         }
 
         //android获取一个用于打开PDF文件的intent

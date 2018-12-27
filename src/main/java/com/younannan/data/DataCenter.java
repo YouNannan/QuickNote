@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.net.URI;
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -30,9 +31,24 @@ public class DataCenter {
 	private String saveDir;
 	private static final String INFO_FILENAME = "data_info";
 	private static final String TEMPLATE_FILENAME = "data_template";
+    private static final String DEPARTMENT_FILENAME = "data_department";
 	private static final String ENCRYPT_PASSWORD = "iloveyouILOVEYOU";
 	private static final String EMAIL_ACCOUNT = "bilu2017@126.com";
 
+    public void setDepartment(String theDepartment, String theDepartmentEmail){
+        saveObject("{" + theDepartment + "/{" + theDepartmentEmail, saveDir + "/" + DEPARTMENT_FILENAME);
+    }
+    public String getDepartment(){
+        try{
+            String departmentData = (String)loadObject(saveDir + "/" + DEPARTMENT_FILENAME);
+            if(departmentData == null){
+                return "{/{";
+            }
+            return departmentData;
+        } catch (ClassCastException e){
+            return "{/{";
+        }
+    }
 
     public DataCenter(String theSaveDir) {
         saveDir = theSaveDir;
